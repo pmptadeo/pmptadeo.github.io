@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Own Website Portfolio</title>
+  <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+
+    <div class="portfolio-row header-wrap">
+      <nav class="portfolio-navbar">
+        <ul>
+          <li><a href="#full-picture">Home</a></li>
+          <li><a href="#slide-carousel">About</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav> 
+      <div class="header-right">
+      </div>
+      <div class="hamburger">
+        <i class="fa fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+  <section id="full-picture">
+    <div class="full-picture-wrapper">
+      <img src="hello.jpg" alt="Full Picture">
+    </div>
+  </section>
+
+
+  <section id="slide-carousel">
+    <div class="slider">
+      <div class="portfolio-container">
+        <div class="slider-content">
+          <div class="slider-general">
+            <div class="welcome-txt">
+              <h1 class="fade-in">
+                My Name is <span class="typing-effect"></span>
+              </h1>
+              <br> <br> <br>
+              <p class="paragraph-effect">I am an aspiring web developer passionate about creating visually stunning and user-friendly websites. With a strong foundation in HTML, CSS, and JavaScript, I strive to deliver exceptional online experiences that leave a lasting impression.</p>
+              <br>
+              <p class="paragraph-effect">Driven by my enthusiasm for learning and problem-solving, I constantly seek out new technologies and stay up-to-date with the latest web development trends. My goal is to transform ideas into innovative and functional websites that exceed client expectations.</p>
+              <div class="download-resume">
+                <a href="Patricia Mae P. Tadeo - Resume.docx" target="_blank">
+                  Download CV
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="slider-image">
+            <div class="welcome-image">
+              <img id="myImage" src="me2.jpg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="portfolio">
+    <div class="portfolio-container">
+      <h2 class="section-title">Sample Works</h2>
+      <div class="project">
+        <div class="project-thumbnail">
+          <img id="project-thumbnail-1" src="logo.png" alt="Project 1">
+          <div class="thumbnail-buttons">
+            <button id="prev-button-1" class="thumbnail-button previous">Previous</button>
+            <button id="next-button-1" class="thumbnail-button next">Next</button>
+          </div>
+        </div>
+        <div class="project-details">
+          <h3 class="project-title">Project 1</h3>
+          <p class="project-description">Saliw is a small business located in Marikina City. The creation of a web page for this scented candle business will help the owners to promote their products to a large market audience. Saliw offers scented candles, which are made with fragrant oils mixed into the wax and emit a pleasant aroma when burned. A scented candle is a nice addition to a bathroom, especially when guests are present, as well as a bedroom or any other room in the house. A scented candle can help to create an atmosphere of health and well-being.</p>
+        </div>
+      </div>
+      <div class="project">
+        <div class="project-thumbnail">
+          <img id="project-thumbnail-2" src="logo2.png" alt="Project 2">
+          <div class="thumbnail-buttons">
+            <button id="prev-button-2" class="thumbnail-button previous">Previous</button>
+            <button id="next-button-2" class="thumbnail-button next">Next</button>
+          </div>
+        </div>
+        <div class="project-details">
+          <h3 class="project-title">Project 2</h3>
+          <p class="project-description">The business is about selling succulents that aside from its physical branches stores, it can also be introduced on the Internet. The client's shop is called, "Plantitas & Plantitos".</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    .thumbnail-buttons {
+      display: flex;
+      justify-content: left;
+      margin-top: 10px;
+    }
+  
+    .thumbnail-button {
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      outline: none;
+      transition: background-color 0.3s;
+      padding: 5px 10px;
+      margin: 0 5px;
+      border-radius: 5px;
+    }
+  
+    .previous {
+      background-color: #E59866;
+    }
+  
+    .next {
+      background-color: #99A3A4;
+    }
+  
+    .thumbnail-button:hover {
+      opacity: 0.8;
+    }
+  </style>
+  
+  <script>
+    function changeThumbnail(projectId, imageUrls) {
+      const thumbnail = document.getElementById(`project-thumbnail-${projectId}`);
+      const prevButton = document.getElementById(`prev-button-${projectId}`);
+      const nextButton = document.getElementById(`next-button-${projectId}`);
+  
+      let index = 0; 
+  
+      function updateThumbnail() {
+        thumbnail.src = imageUrls[index];
+      }
+  
+      function prevImage() {
+        index = (index - 1 + imageUrls.length) % imageUrls.length;
+        updateThumbnail();
+      }
+  
+      function nextImage() {
+        index = (index + 1) % imageUrls.length;
+        updateThumbnail();
+      }
+  
+      prevButton.addEventListener('click', prevImage);
+      nextButton.addEventListener('click', nextImage);
+  
+      
+      updateThumbnail();
+    }
+  
+  
+    changeThumbnail(1, ['logo.png', 'Shop.png', 'about us.png']);
+    changeThumbnail(2, ['logo2.png', 'shop2.png', 'homepage.png']);
+  </script>
+  
+  
+  
+  
+
+
+  <section id="contact">
+    <div class="portfolio-container">
+      <div class="text-wrap">
+        <h2 class="main-title">Stay Connected</h2>
+        <h2 class="hover-title">Stay Connected</h2>
+      </div>
+      <div class="contact-info">
+        <span>
+          <i class="fas fa-map-marker-alt fa-lg"></i>
+          Quezon City, Philippines
+        </span>
+        <h3>
+          <i class="fas fa-envelope fa-lg"></i>
+          patriciamaepascualtadeo@gmail.com</h3>
+        <a href="#">
+          <i class="fas fa-phone-alt fa-lg"></i>
+          +639454911057
+        </a>
+      </div>
+      <div class="social-link">
+        <ul>
+          <li>
+            <a href="https://www.facebook.com/pmptadz">
+              <i class="fab fa-facebook fa-2x"></i>
+              <span>@pmptadz</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/patriciamae.tadeo/">
+              <i class="fab fa-instagram fa-2x"></i>
+              <span>@patriciamae.tadeo</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/pascualllltadeo">
+              <i class="fab fa-twitter fa-2x"></i>
+              <span>@pascualllltadeo</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/patricia-mae-tadeo-1b2540228/">
+              <i class="fab fa-linkedin fa-2x"></i>
+              <span>@patricia-mae-tadeo-1b2540228</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVmdiC+7qwo/5p24TUzKThym5DDCDtYJjA8r+b" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+  $('.hamburger').click(function() {
+    $('.portfolio-navbar').toggleClass('show');
+  });
+  
+  $('.portfolio-navbar a').click(function() {
+    $('.portfolio-navbar').removeClass('show');
+  });
+});
+
+
+    $(document).ready(function() {
+  $("a").on("click", function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+
+      var hash = this.hash;
+
+      $("html, body").animate(
+        {
+          scrollTop: $(hash).offset().top
+        },
+        800,
+        function() {
+          
+          window.location.hash = hash;
+        }
+      );
+    } 
+  });
+});
+
+var imageIndex = 0;
+var images = ["me1.jpg", "me2.jpg"]; 
+
+function changeImage() {
+  var welcomeImage = document.getElementById("myImage");
+  welcomeImage.src = images[imageIndex];
+  imageIndex = (imageIndex + 1) % images.length;
+}
+setInterval(changeImage, 3000); 
+
+var typingTexts = ["Patricia Mae Tadeo"]; 
+    var typingDelay = 500; 
+
+    function typeWriter(element, text, index) {
+      if (index < text.length) {
+        element.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(function() {
+          typeWriter(element, text, index);
+        }, typingDelay);
+      } else {
+        setTimeout(function() {
+          element.innerHTML = ""; 
+          var nextIndex = (typingTexts.indexOf(text) + 1) % typingTexts.length;
+          typeWriter(element, typingTexts[nextIndex], 0); 
+        }, typingDelay);
+      }
+    }
+
+    $(document).ready(function() {
+      var typingElement = $(".typing-effect")[0];
+      typeWriter(typingElement, typingTexts[0], 0);
+    });
+
+
+    $(document).ready(function() {
+  $(".paragraph-effect").hover(
+    function() {
+      $(this).css("color", "#7B241C");
+    },
+    function() {
+      $(this).css("color", ""); 
+    }
+  );
+
+  $(".paragraph-effect").on("touchstart", function() {
+    $(this).css("color", "blue");
+  });
+
+  $(".paragraph-effect").on("touchend", function() {
+    $(this).css("color", ""); 
+  });
+});
+
+  </script>
+
+</body>
+</html>
